@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-<%= deployment_id %>
+  labels:
+    name: my-pod-<%= deployment_id %>
+    app: trashbin
+    environment: production
+spec:
+  activeDeadlineSeconds: 300
+  restartPolicy: Never
+  containers:
+    - name: nginx
+      image: nginx:1.11.5-alpine
+      ports:
+      - containerPort: 80
+        name: http
+      env:
+        - name: CURRENT_SHA
+          value: <%= current_sha %>
