@@ -14,4 +14,4 @@ tasks:
         default: migrate
       - name: K8S_TEMPLATE_FOLDER
         title: Command pod template location
-        default: /app/config/deploy/command
+        default: config/deploy/command
