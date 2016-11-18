@@ -1,3 +1,17 @@
 deploy:
   override:
     - deploy-to-gke trashbin-production test-cluster shopify-codelab-and-demos
+
+tasks:
+  run_command:
+    action: "Run command"
+    description: "Start a kubernetes pod with a procfile command"
+    steps:
+      - deploy-to-gke trashbin-production test-cluster shopify-codelab-and-demos
+    variables:
+      - name: PROCFILE_ENTRY
+        title: The name of the procfile entry to invoke
+        default: migrate
+      - name: K8S_TEMPLATE_FOLDER
+        title: Command pod template location
+        default: /app/config/deploy/command

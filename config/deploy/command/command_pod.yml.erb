@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cmd-runner-<%= deployment_id %>
+  labels:
+    name: cmd-runner-<%= deployment_id %>
+    type: command-runner
+    app: trashbin
+    environment: production
+spec:
+  activeDeadlineSeconds: 300
+  restartPolicy: Never
+  containers:
+  - name: command-runner
+    image: nginx:1.11.5-alpine
+    args: ["<%= ENV['PROCFILE_ENTRY'] %>"]
+    env:
+      - name: CURRENT_SHA
+        value: <%= current_sha %>
