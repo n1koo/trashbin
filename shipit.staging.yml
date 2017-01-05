@@ -1,0 +1,3 @@
+deploy:
+  override:
+    - deploy-to-gke trashbin-staging test shopify-codelab-and-demos
