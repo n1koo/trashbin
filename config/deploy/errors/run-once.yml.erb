@@ -17,3 +17,8 @@ spec:
           configMapKeyRef:
             name: some-data
             key: datapoint2
+      - name: MISSING_CONFIG
+        valueFrom:
+          configMapKeyRef:
+            name: this-is-missing
+            key: datapoint2
