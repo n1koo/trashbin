@@ -6,11 +6,11 @@ metadata:
     name: speaker-pod-<%= deployment_id %>
     app: trashbin
 spec:
-  activeDeadlineSeconds: 6
+  activeDeadlineSeconds: 300
   restartPolicy: Never
   containers:
     - name: speaker
-      image: gcr.io/shopify-codelab-and-demos/knverey-run-once:v10
+      image: gcr.io/shopify-codelab-and-demos/knverey-run-once:v1
       env:
       - name: CONFIG
         valueFrom:
