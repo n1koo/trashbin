@@ -1,0 +1,7 @@
+deploy:
+  override:
+    - kubernetes-deploy trashbin-errors tier5
+
+rollback:
+  override:
+    - kubernetes-deploy trashbin-errors tier5
